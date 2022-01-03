@@ -1,15 +1,27 @@
 version: '3.9'
 
 services:
-    app:
-        container_name: app
+    nginx:
+        depends_on:
+            - client
+        container_name: nginx
+        build:
+            context: ./nginx
+            dockerfile: Dockerfile
+        ports:
+            - 8000:80
+        restart: always
+        networks:
+            - client-network
+
+    client:
+        container_name: client
         build: .
         volumes:
             - .:/app
-        ports:
-            - 3000:3000
         tty: true
-        # command: pnpm run dev
+        networks:
+            - client-network
 
     graphql-engine:
         depends_on:
@@ -33,6 +45,9 @@ services:
             - db_data:/var/lib/postgres/data
         environment:
             POSTGRES_PASSWORD: postgrespassword
+
+networks:
+    client-network:
 
 volumes:
     db_data:
