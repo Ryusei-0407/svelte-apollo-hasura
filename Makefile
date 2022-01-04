@@ -1,5 +1,6 @@
-pause:
-		docker-compose pause
-
 unpause:
-		docker-compose unpause
+	docker-compose unpause
+
+pause:
+	docker-compose pause
+
