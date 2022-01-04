@@ -2,4 +2,3 @@ node_modules/
 .gitignore
 .pnpm-store/
 .svelte-kit/
-docker-compose.yml
