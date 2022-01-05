@@ -1,10 +1,11 @@
 import { gql } from '@apollo/client/core';
 
-export const GET_BOOKS = gql`
-  query GetBooks {
-    book {
+export const GET_TODOS = gql`
+  query GetTodos {
+    todo {
       id
-      name
+      task
+      is_completed
     }
   }
 `
