@@ -3,7 +3,7 @@
   import { createApolloClient } from '../lib/apolloClient';
   import { GET_TODOS } from '../lib/queries/query';
 
-  const getbook = async () => {
+  const getTodos = async () => {
     const client = createApolloClient();
 
     const res = await client.query({ query: GET_TODOS });
@@ -11,7 +11,7 @@
 
     return await data;
   };
-  let promise = getbook();
+  let promise = getTodos();
 
 </script>
 
