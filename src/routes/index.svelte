@@ -1,4 +1,5 @@
 <script>
+  import { Circle2 } from 'svelte-loading-spinners';
   import { createApolloClient } from '../lib/apolloClient';
   import { GET_TODOS } from '../lib/queries/query';
 
@@ -19,8 +20,8 @@
 </div>
 
 {#await promise}
-  <div class="flex justify-center items-center">
-    <p class="font-sans text-xl">...loading</p>
+  <div class="flex justify-center items-center py-5">
+    <Circle2 size="100" />
   </div>
 {:then data}
   {#each data.todo as todo}
