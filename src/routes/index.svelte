@@ -64,7 +64,7 @@
 </script>
 
 <div class="flex justify-center items-center">
-	<h1 class="text-red-500 font-mono text-2xl py-3">Hello, Svelte</h1>
+	<h1 class="text-red-500 font-mono text-4xl py-10">Svelte-Kit & GraphQL</h1>
 </div>
 
 <div class="flex justify-center items-center py-3">
