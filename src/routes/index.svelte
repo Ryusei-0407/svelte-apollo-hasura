@@ -19,9 +19,9 @@
 	};
 	let promise = getTodos();
 
-	let task: String = '';
+	let task = '';
 
-	const createTodo = async (task: String) => {
+	const createTodo = async (task) => {
 		const client = createApolloClient();
 
 		const _res = await client.mutate({ mutation: ADD_TODO, variables: { task } });
@@ -29,7 +29,7 @@
 		promise = _promise;
 	};
 
-	const update_task = async (id: String, is_completed: boolean) => {
+	const update_task = async (id, is_completed: boolean) => {
 		const client = createApolloClient();
 
 		if (is_completed) {
@@ -41,7 +41,7 @@
 		promise = _promise;
 	};
 
-	const delete_task = async (id: String) => {
+	const delete_task = async (id) => {
 		const client = createApolloClient();
 
 		const _res = await client.mutate({ mutation: DELETE_TASK, variables: { id } });
