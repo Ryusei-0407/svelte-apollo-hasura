@@ -18,15 +18,6 @@ export const ADD_TODO = gql`
 	}
 `;
 
-export const EDIT_TODO = gql`
-	mutation UpdateTodo($id: uuid!, $task: String!) {
-		update_todo_by_pk(_set: { task: $task }, pk_columns: { id: $id }) {
-			id
-			task
-		}
-	}
-`;
-
 export const COMPLETE_TASK = gql`
 	mutation ($id: uuid!) {
 		update_todo_by_pk(_set: { is_completed: true }, pk_columns: { id: $id }) {

@@ -4,7 +4,6 @@
 	import {
 		GET_TODOS,
 		ADD_TODO,
-		EDIT_TODO,
 		COMPLETE_TASK,
 		UNCOMPLETE_TASK,
 		DELETE_TASK
@@ -20,44 +19,32 @@
 	};
 	let promise = getTodos();
 
-	let task = '';
+	let task: String = '';
 
-	const createTodo = async (task) => {
+	const createTodo = async (task: String) => {
 		const client = createApolloClient();
 
-		const res = await client.mutate({ mutation: ADD_TODO, variables: { task } });
-		console.log(res);
+		const _res = await client.mutate({ mutation: ADD_TODO, variables: { task } });
 		let _promise = getTodos();
 		promise = _promise;
 	};
 
-	/*
-    const editTodo = async (id: String, task: String) => {
-      const client = createApolloClient();
-
-      const res = await client.mutate({  });
-    }
-  */
-
-	const update_task = async (id, is_completed) => {
+	const update_task = async (id: String, is_completed: boolean) => {
 		const client = createApolloClient();
 
 		if (is_completed) {
-			const res = await client.mutate({ mutation: UNCOMPLETE_TASK, variables: { id } });
-			console.log(res);
+			const _res = await client.mutate({ mutation: UNCOMPLETE_TASK, variables: { id } });
 		} else {
-			const res = await client.mutate({ mutation: COMPLETE_TASK, variables: { id } });
-			console.log(res);
+			const _res = await client.mutate({ mutation: COMPLETE_TASK, variables: { id } });
 		}
 		let _promise = getTodos();
 		promise = _promise;
 	};
 
-	const delete_task = async (id) => {
+	const delete_task = async (id: String) => {
 		const client = createApolloClient();
 
-		const res = await client.mutate({ mutation: DELETE_TASK, variables: { id } });
-		console.log(res);
+		const _res = await client.mutate({ mutation: DELETE_TASK, variables: { id } });
 		let _promise = getTodos();
 		promise = _promise;
 	};
@@ -92,12 +79,6 @@
 							{:else}
 								<td class="line-through px-10 w-60">{todo.task}</td>
 							{/if}
-							<td>
-								<button
-									class="bg-red-500 hover:bg-red-700 text-white text-sm font-mono ml-2 px-2 rounded"
-									>Edit</button
-								>
-							</td>
 							<td>
 								{#if todo.is_completed}
 									<button
