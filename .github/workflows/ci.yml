@@ -35,15 +35,9 @@ jobs:
 
       - name: Install packages
         run: pnpm install
-
-      - name: Check lint
+        
+      - name: Lint check
         run: pnpm lint
-
-      - name: Write prettier format
-        run: pnpm format
-
-      - name: Svelte check
-        run: pnpm run check
 
       - name: Build
         run: pnpm run build
