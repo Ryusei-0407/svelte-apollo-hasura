@@ -38,7 +38,7 @@ jobs:
 
       - name: Check lint
         run: pnpm lint
-        
+
       - name: Write prettier format
         run: pnpm format
 
